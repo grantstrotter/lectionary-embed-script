@@ -34,7 +34,17 @@ function formatDate(date) {
     return `${weekday}, ${day}`;
 }
 
-const now = new Date();
+let now;
+if(
+    document.currentScript.dataset.dateOverride &&
+    document.currentScript.dataset.dateOverride !== ''
+) {
+    console.warn('Date override in use');
+    now = new Date(document.currentScript.dataset.dateOverride);
+} else {
+    new Date();
+}
+
 let currentWeek;
 for (const i in weeks) {
     if (now > weeks[i].date) {
