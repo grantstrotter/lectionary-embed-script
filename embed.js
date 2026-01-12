@@ -1,4 +1,4 @@
-// Test change 3
+// Test change 4
 const weeks = [
     { date: new Date('2026-01-11 23:59:59'), title: 'Baptism of the Lord', oldTestament: 'Isaiah 42:1-9', psalm: 'Psalm 29', newTestament: 'Acts 10:34-43', gospel: 'Matthew 3:13-17', link: 'https://www.biblegateway.com/passage/?search=Isaiah%2042%3A1-9%2C%20Psalm%2029%2C%20Acts%2010%3A34-43%2C%20Matthew%203%3A13-17', },
     { date: new Date('2026-01-18 23:59:59'), title: 'Second Sunday after the Epiphany', oldTestament: 'Isaiah 49:1-7', psalm: 'Psalm 40:1-11', newTestament: '1 Corinthians 1:1-9', gospel: 'John 1:29-42', link: 'https://www.biblegateway.com/passage/?search=Isaiah%2049%3A1-7%2C%20Psalm%2040%3A1-11%2C%201%20Corinthians%201%3A1-9%2C%20John%201%3A29-42', },
