@@ -21,10 +21,11 @@ const weeks = [
     { date: new Date('2026-05-24 23:59:59'), title: 'Day of Pentecost', oldTestament: 'Acts 2:1-21 or Numbers 11:24-30', psalm: 'Psalm 104:24-34, 35b', newTestament: '1 Corinthians 12:3b-13 or Acts 2:1-21', gospel: 'John 20:19-23 or John 7:37-39', link: 'https://www.biblegateway.com/passage/?search=Acts%202%3A1-21%2C%20Numbers%2011%3A24-30%2C%20Psalm%20104%3A24-34%2C%2035b%2C%201%20Corinthians%2012%3A3b-13%2C%20Acts%202%3A1-21%2C%20John%2020%3A19-23%2C%20John%207%3A37-39', },
     { date: new Date('2026-05-31 23:59:59'), title: 'Trinity Sunday', oldTestament: 'Genesis 1:1-2:4a', psalm: 'Psalm 8', newTestament: '2 Corinthians 13:11-13', gospel: 'Matthew 28:16-20', link: 'https://www.biblegateway.com/passage/?search=Genesis%201%3A1-2%3A4a%2C%20Psalm%208%2C%202%20Corinthians%2013%3A11-13%2C%20Matthew%2028%3A16-20', },
 ];
-function ordinal(n) {
-    const s = ["th", "st", "nd", "rd"];
-    const v = n % 100;
-    return n + (s[(v - 20) % 10] || s[v] || s[0]);
+
+function ordinal(number) {
+    const suffixes = ["th", "st", "nd", "rd"];
+    const lastTwoDigits = number % 100;
+    return number + (suffixes[(lastTwoDigits - 20) % 10] || suffixes[lastTwoDigits] || suffixes[0]);
 }
 
 function formatDate(date) {
@@ -33,41 +34,41 @@ function formatDate(date) {
     return `${weekday}, ${day}`;
 }
 
-const now2 = new Date();
-let week2;
+const now = new Date();
+let currentWeek;
 for (const i in weeks) {
-    if (now2 > weeks[i].date) {
+    if (now > weeks[i].date) {
         continue;
     }
-    week2 = weeks[i];
+    currentWeek = weeks[i];
     break;
 }
 
 const includesOr =
-    week2.oldTestament.includes(' or ') ||
-    week2.psalm.includes(' or ') ||
-    week2.newTestament.includes(' or ') ||
-    week2.gospel.includes(' or ');
-
-const otFromActs = week2.oldTestament.includes('Acts');
+    currentWeek.oldTestament.includes(' or ') ||
+    currentWeek.psalm.includes(' or ') ||
+    currentWeek.newTestament.includes(' or ') ||
+    currentWeek.gospel.includes(' or ');
 
 const includesParen =
-    week2.oldTestament.includes('(') ||
-    week2.psalm.includes('(') ||
-    week2.newTestament.includes('(') ||
-    week2.gospel.includes('(');
+    currentWeek.oldTestament.includes('(') ||
+    currentWeek.psalm.includes('(') ||
+    currentWeek.newTestament.includes('(') ||
+    currentWeek.gospel.includes('(');
+
+const otFromActs = currentWeek.oldTestament.includes('Acts');
 
 const anchorElement2 = document.currentScript;
 anchorElement2.insertAdjacentHTML('afterend', `
         <div style="font-family: 'artifex_book', serif">
             <h2>Current Reading</h2>
-            <strong>${formatDate(week2.date)} &bull; ${week2.title}</strong>
+            <strong>${formatDate(currentWeek.date)} &bull; ${currentWeek.title}</strong>
             <ul>
-                <li>OT: ${week2.oldTestament}</li>
-                <li>Psalm: ${week2.psalm}</li>
-                <li>NT: ${week2.newTestament}</li>
-                <li>Gospel: ${week2.gospel}</li>
-                <li><p style="margin: 0px"><a target="_blank" href="${week2.link}">Read all</a></p></li>
+                <li>OT: ${currentWeek.oldTestament}</li>
+                <li>Psalm: ${currentWeek.psalm}</li>
+                <li>NT: ${currentWeek.newTestament}</li>
+                <li>Gospel: ${currentWeek.gospel}</li>
+                <li><p style="margin: 0px"><a target="_blank" href="${currentWeek.link}">Read all</a></p></li>
             </ul>
             ${includesOr ? `<p>
                 When an “or” appears, it means there are alternate readings.
