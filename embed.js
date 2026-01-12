@@ -68,8 +68,7 @@ const includesParen =
 
 const otFromActs = currentWeek.oldTestament.includes('Acts');
 
-const anchorElement2 = document.currentScript;
-anchorElement2.insertAdjacentHTML('afterend', `
+document.currentScript.insertAdjacentHTML('afterend', `
         <div style="font-family: 'artifex_book', serif">
             <h2>Current Reading</h2>
             <strong>${formatDate(currentWeek.date)} &bull; ${currentWeek.title}</strong>
@@ -81,7 +80,7 @@ anchorElement2.insertAdjacentHTML('afterend', `
                 <li><p style="margin: 0px"><a target="_blank" href="${currentWeek.link}">Read all</a></p></li>
             </ul>
             ${includesOr ? `<p>
-                When an “or” appears, it means there are alternate readings.
+                When an &ldquo;or&rdquo; appears, it means there are alternate readings.
                 The preacher will choose one of them. For personal reading,
                 you may choose either option or read both.
             </p>` : ''}
@@ -93,7 +92,7 @@ anchorElement2.insertAdjacentHTML('afterend', `
             </p>` : ''}
             ${otFromActs ? `<p>
                 Q: Why is the Old Testament reading from Acts?<br/>
-                A: What we've been calling the Old Testament reading is technically called "First Reading".
+                A: What we've been calling the Old Testament reading is technically called &ldquo;First Reading&rdquo;.
                 It's usually from the Old Testament, but during the Easter season, it shifts to Acts.
                 The Old Testament often foreshadows Christ. During the Easter season, the focus shifts to the
                 fulfillment of those promises in the New Testament, with Acts showing the
