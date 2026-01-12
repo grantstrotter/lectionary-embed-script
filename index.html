@@ -53,6 +53,12 @@
 
     const otFromActs = week.oldTestament.includes('Acts');
 
+    const includesParen =
+        week.oldTestament.includes('(') ||
+        week.psalm.includes('(') ||
+        week.newTestament.includes('(') ||
+        week.gospel.includes('(');
+
     const anchorElement = document.getElementById('current-reading');
     anchorElement.insertAdjacentHTML('afterend', `
         <div style="font-family: 'artifex_book', serif">
@@ -70,8 +76,14 @@
                 The preacher will choose one of them. For personal reading,
                 you may choose either option or read both.
             </p>` : ''}
+            ${includesParen ? `<p>
+                Q: Why are there parenthesis?<br/>
+                A: These are optional verses that can be added without overlapping with other
+                weeks of the lectionary. The preacher may include them in their sermon or not.
+                For personal reading, you my read them or not.
+            </p>` : ''}
             ${otFromActs ? `<p>
-                Q: Why is the Old Testament reading from Acts? <br/>
+                Q: Why is the Old Testament reading from Acts?<br/>
                 A: What we've been calling the Old Testament reading is technically called "First Reading".
                 It's usually from the Old Testament, but during Eastertide, it shifts to Acts.
                 The Old Testament often foreshadows Christ. During the Easter season, the focus shifts to the
