@@ -1,7 +1,7 @@
 console.log('here');
 
 console.log(document.currentScript)
-const weeks = [
+const weeks2 = [
     { date: new Date('2026-01-11 23:59:59'), title: 'Baptism of the Lord', oldTestament: 'Isaiah 42:1-9', psalm: 'Psalm 29', newTestament: 'Acts 10:34-43', gospel: 'Matthew 3:13-17', link: 'https://www.biblegateway.com/passage/?search=Isaiah%2042%3A1-9%2C%20Psalm%2029%2C%20Acts%2010%3A34-43%2C%20Matthew%203%3A13-17', },
     { date: new Date('2026-01-18 23:59:59'), title: 'Second Sunday after the Epiphany', oldTestament: 'Isaiah 49:1-7', psalm: 'Psalm 40:1-11', newTestament: '1 Corinthians 1:1-9', gospel: 'John 1:29-42', link: 'https://www.biblegateway.com/passage/?search=Isaiah%2049%3A1-7%2C%20Psalm%2040%3A1-11%2C%201%20Corinthians%201%3A1-9%2C%20John%201%3A29-42', },
     { date: new Date('2026-01-25 23:59:59'), title: 'Third Sunday after the Epiphany', oldTestament: 'Isaiah 9:1-4', psalm: 'Psalm 27:1, 4-9', newTestament: '1 Corinthians 1:10-18', gospel: 'Matthew 4:12-23', link: 'https://www.biblegateway.com/passage/?search=Isaiah%209%3A1-4%2C%20Psalm%2027%3A1%2C%204-9%2C%201%20Corinthians%201%3A10-18%2C%20Matthew%204%3A12-23', },
@@ -24,66 +24,66 @@ const weeks = [
     { date: new Date('2026-05-24 23:59:59'), title: 'Day of Pentecost', oldTestament: 'Acts 2:1-21 or Numbers 11:24-30', psalm: 'Psalm 104:24-34, 35b', newTestament: '1 Corinthians 12:3b-13 or Acts 2:1-21', gospel: 'John 20:19-23 or John 7:37-39', link: 'https://www.biblegateway.com/passage/?search=Acts%202%3A1-21%2C%20Numbers%2011%3A24-30%2C%20Psalm%20104%3A24-34%2C%2035b%2C%201%20Corinthians%2012%3A3b-13%2C%20Acts%202%3A1-21%2C%20John%2020%3A19-23%2C%20John%207%3A37-39', },
     { date: new Date('2026-05-31 23:59:59'), title: 'Trinity Sunday', oldTestament: 'Genesis 1:1-2:4a', psalm: 'Psalm 8', newTestament: '2 Corinthians 13:11-13', gospel: 'Matthew 28:16-20', link: 'https://www.biblegateway.com/passage/?search=Genesis%201%3A1-2%3A4a%2C%20Psalm%208%2C%202%20Corinthians%2013%3A11-13%2C%20Matthew%2028%3A16-20', },
 ];
-function ordinal(n) {
+function ordinal2(n) {
     const s = ["th", "st", "nd", "rd"];
     const v = n % 100;
     return n + (s[(v - 20) % 10] || s[v] || s[0]);
 }
 
-function formatDate(date) {
+function formatDate2(date) {
     const weekday = new Intl.DateTimeFormat("en-US", { weekday: "long" }).format(date);
-    const day = ordinal(date.getDate());
+    const day = ordinal2(date.getDate());
     return `${weekday}, ${day}`;
 }
 
-const now = new Date();
-let week;
-for (const i in weeks) {
-    if (now > weeks[i].date) {
+const now2 = new Date();
+let week2;
+for (const i in weeks2) {
+    if (now2 > weeks2[i].date) {
         continue;
     }
-    week = weeks[i];
+    week2 = weeks2[i];
     break;
 }
 
-const includesOr =
-    week.oldTestament.includes(' or ') ||
-    week.psalm.includes(' or ') ||
-    week.newTestament.includes(' or ') ||
-    week.gospel.includes(' or ');
+const includesOr2 =
+    week2.oldTestament.includes(' or ') ||
+    week2.psalm.includes(' or ') ||
+    week2.newTestament.includes(' or ') ||
+    week2.gospel.includes(' or ');
 
-const otFromActs = week.oldTestament.includes('Acts');
+const otFromActs2 = week2.oldTestament.includes('Acts');
 
-const includesParen =
-    week.oldTestament.includes('(') ||
-    week.psalm.includes('(') ||
-    week.newTestament.includes('(') ||
-    week.gospel.includes('(');
+const includesParen2 =
+    week2.oldTestament.includes('(') ||
+    week2.psalm.includes('(') ||
+    week2.newTestament.includes('(') ||
+    week2.gospel.includes('(');
 
-const anchorElement = document.currentScript;
-anchorElement.insertAdjacentHTML('afterend', `
+const anchorElement2 = document.currentScript;
+anchorElement2.insertAdjacentHTML('afterend', `
         <div style="font-family: 'artifex_book', serif">
             <h2>Current Reading</h2>
-            <strong>${formatDate(week.date)} &bull; ${week.title}</strong>
+            <strong>${formatDate2(week2.date)} &bull; ${week2.title}</strong>
             <ul>
-                <li>OT: ${week.oldTestament}</li>
-                <li>Psalm: ${week.psalm}</li>
-                <li>NT: ${week.newTestament}</li>
-                <li>Gospel: ${week.gospel}</li>
-                <li><p style="margin: 0px"><a target="_blank" href="${week.link}">Read all</a></p></li>
+                <li>OT: ${week2.oldTestament}</li>
+                <li>Psalm: ${week2.psalm}</li>
+                <li>NT: ${week2.newTestament}</li>
+                <li>Gospel: ${week2.gospel}</li>
+                <li><p style="margin: 0px"><a target="_blank" href="${week2.link}">Read all</a></p></li>
             </ul>
-            ${includesOr ? `<p>
+            ${includesOr2 ? `<p>
                 When an “or” appears, it means there are alternate readings.
                 The preacher will choose one of them. For personal reading,
                 you may choose either option or read both.
             </p>` : ''}
-            ${includesParen ? `<p>
+            ${includesParen2 ? `<p>
                 Q: Why are there parenthesis?<br/>
                 A: These are optional verses that can be added without overlapping with other
                 weeks of the lectionary. The preacher may or may not include them in their sermon.
                 For personal reading, you my read them or not.
             </p>` : ''}
-            ${otFromActs ? `<p>
+            ${otFromActs2 ? `<p>
                 Q: Why is the Old Testament reading from Acts?<br/>
                 A: What we've been calling the Old Testament reading is technically called "First Reading".
                 It's usually from the Old Testament, but during the Easter season, it shifts to Acts.
