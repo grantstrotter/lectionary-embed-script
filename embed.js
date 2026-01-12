@@ -42,7 +42,7 @@ if(
     console.warn('Date override in use');
     now = new Date(document.currentScript.dataset.dateOverride);
 } else {
-    new Date();
+    now = new Date();
 }
 
 let currentWeek;
