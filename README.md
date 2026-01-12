@@ -1,4 +1,11 @@
 # lectionary-embed-script
-To preview changes, open index.html in a browser and refresh after each change.
+To preview changes locally, open index.html in a browser and refresh after each change.
 
-When you changes look good, copy-paste the entire contents of index.html into the Denton North Church squarespace embed component on the Content>Lectionary page.
+A Github Pages url is exposed for this repo: https://grantstrotter.github.io/lectionary-embed-script/
+
+The embed script is included in the Denton North Church website on the Lectionary page in a Code Block:
+```
+<script src="https://grantstrotter.github.io/lectionary-embed-script/embed.js"></script>
+```
+
+Whenever changes are pushed to `main`, a deploy process automatically kicks off via Github Pages. **This takes about 5 minutes.** When it's done, the changes should automatically appear on the live website.
