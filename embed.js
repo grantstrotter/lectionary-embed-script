@@ -79,7 +79,7 @@ anchorElement2.insertAdjacentHTML('afterend', `
                 Q: Why are there parenthesis?<br/>
                 A: These are optional verses that can be added without overlapping with other
                 weeks of the lectionary. The preacher may or may not include them in their sermon.
-                For personal reading, you my read them or not.
+                For personal reading, you my choose to read them or not.
             </p>` : ''}
             ${otFromActs ? `<p>
                 Q: Why is the Old Testament reading from Acts?<br/>
